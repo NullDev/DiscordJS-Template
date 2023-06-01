@@ -1,0 +1,14 @@
+{
+    "apps": [
+        {
+            "name": "discordjs-template",
+            "cwd": "./",
+            "script": "src/app.js",
+            "exec_mode": "fork",
+            "instances": 1,
+            "env": { "NODE_ENV": "production" },
+            "repo": "https://github.com/NullDev/DiscordJS-Template.git",
+            "ref": "origin/master"
+        }
+    ]
+}
