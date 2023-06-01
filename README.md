@@ -64,6 +64,9 @@ $ `npm run start:prod` <br><br>
 - Bot Info Tagline
     - [English](https://github.com/NullDev/DiscordJS-Template/blob/master/locales/English_en.json#L8)
     - [German (example)](https://github.com/NullDev/DiscordJS-Template/blob/master/locales/German_de.json#L8)
+- Bot Info Author / Link
+    - [author name](https://github.com/NullDev/DiscordJS-Template/blob/master/src/commands/user/info.js#L59)
+    - [repo link or website](https://github.com/NullDev/DiscordJS-Template/blob/master/src/commands/user/info.js#L64)
 - Bot invite link in issues
     - [config.yml](https://github.com/NullDev/DiscordJS-Template/blob/master/.github/ISSUE_TEMPLATE/config.yml#L4)
 
