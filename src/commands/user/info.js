@@ -55,6 +55,18 @@ export default {
             },
             fields: [
                 {
+                    name: "Author :computer:",
+                    value: "YOUR_NAME",
+                    inline: true,
+                },
+                {
+                    name: "Source Code :scroll:",
+                    value: "[YOUR_NAME/YOUR_REPO](https://github.com/YOUR_NAME/YOUR_REPO)"
+                        + "Based on: [NullDev/DiscordJS-Template](https://github.com/NullDev/DiscordJS-Template)",
+                    inline: true,
+                },
+                { name: "\u200b", value: "\u200b", inline: true },
+                {
                     name: "Programming Language :wrench:",
                     value: `NodeJS ${process.version}`,
                     inline: true,
