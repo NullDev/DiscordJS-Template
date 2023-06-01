@@ -11,6 +11,8 @@ import translationCheck from "./util/translationCheck.js";
 
 const manager = new ShardingManager("./src/bot.js", {
     token: config.discord.bot_token,
+    totalShards: "auto",
+    respawn: true,
 });
 
 const appname = meta.getName();
@@ -50,4 +52,8 @@ else {
 
 manager.on("shardCreate", shard => Log.info(`Launched shard ${shard.id}`));
 
-manager.spawn();
+manager.spawn({
+    amount: manager.totalShards,
+    delay: 5500,
+    timeout: 30000,
+}).catch(e => Log.error("Failed to spawn shards", e));
