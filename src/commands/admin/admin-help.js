@@ -1,6 +1,4 @@
 import { SlashCommandBuilder, PermissionFlagsBits } from "discord.js";
-import translations from "../../../locales/commands/translations.js";
-import __ from "../../util/i18n.js";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -9,8 +7,7 @@ import __ from "../../util/i18n.js";
 export default {
     data: new SlashCommandBuilder()
         .setName("admin-help")
-        .setDescription(translations.admin_help.desc)
-        .setDescriptionLocalizations(translations.admin_help.translations)
+        .setDescription("Show an overview of all admin commands.")
         .setDMPermission(false)
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     /**
@@ -21,8 +18,7 @@ export default {
             .commands.filter(cmd => cmd.data.default_member_permissions !== undefined);
 
         const str = await Promise.all(userCommands.map(async(cmd) => {
-            const serverLang = await __("__LANG__")(interaction.guildId);
-            const desc = cmd.data.description_localizations?.[serverLang] || cmd.data.description;
+            const desc = cmd.data.description;
             return `**/${cmd.data.name}** - ${desc}`;
         }));
 

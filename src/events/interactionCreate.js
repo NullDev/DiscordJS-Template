@@ -1,5 +1,4 @@
 import Log from "../util/log.js";
-import __ from "../util/i18n.js";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -17,7 +16,7 @@ const handleCommandInteraction = async function(interaction){
 
     if (!command){
         Log.warn(`No command matching ${interaction.commandName} was found.`);
-        await interaction.reply({ content: await __("errors.command_not_found", interaction.commandName)(interaction.guildId), ephemeral: true });
+        await interaction.reply({ content: `I don't seem to know the command '${interaction.commandName}' :/`, ephemeral: true });
         return;
     }
 
@@ -26,7 +25,7 @@ const handleCommandInteraction = async function(interaction){
     }
     catch (error){
         Log.error("Error during command execution: ", error);
-        const content = await __("errors.generic_command_execution_failed")(interaction.guildId);
+        const content = "There was an error while executing this command! =(";
         if (interaction.replied || interaction.deferred) await interaction.followUp({ content, ephemeral: true });
         else await interaction.reply({ content, ephemeral: true });
     }

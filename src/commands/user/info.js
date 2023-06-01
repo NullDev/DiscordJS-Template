@@ -1,7 +1,5 @@
 import os from "node:os";
 import { SlashCommandBuilder } from "discord.js";
-import translations from "../../../locales/commands/translations.js";
-import __ from "../../util/i18n.js";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -10,8 +8,7 @@ import __ from "../../util/i18n.js";
 export default {
     data: new SlashCommandBuilder()
         .setName("info")
-        .setDescription(translations.info.desc)
-        .setDescriptionLocalizations(translations.info.translations)
+        .setDescription("Show information about this bot.")
         .setDMPermission(false),
     /**
      * @param {import("discord.js").CommandInteraction} interaction
@@ -48,7 +45,7 @@ export default {
 
         const embed = {
             title: "Bot Info",
-            description: await __("replies.bot_info_tagline")(interaction.guildId),
+            description: "Discord Bot template by NullDev.",
             color: 2518621,
             thumbnail: {
                 url: botAvatar,
@@ -86,9 +83,7 @@ export default {
                 },
                 {
                     name: "Guild :clipboard:",
-                    value: `User: \`${count}\`\nBoosts: \`${boosts}\`\nCreated: \`${created}\`\nOwner: \`${owner}\`\nGuild Lang: \`${
-                        await __("__LANG__")(interaction.guildId)
-                    }\`\nServer count: \`${totalGuilds}\`\nMember count: \`${totalMembers}\``,
+                    value: `User: \`${count}\`\nBoosts: \`${boosts}\`\nCreated: \`${created}\`\nOwner: \`${owner}\`\nServer count: \`${totalGuilds}\`\nMember count: \`${totalMembers}\``,
                     inline: true,
                 },
                 { name: "\u200b", value: "\u200b", inline: true },
