@@ -62,7 +62,7 @@ export default {
                 {
                     name: "Source Code :scroll:",
                     value: "[YOUR_NAME/YOUR_REPO](https://github.com/YOUR_NAME/YOUR_REPO)"
-                        + "Based on: [NullDev/DiscordJS-Template](https://github.com/NullDev/DiscordJS-Template)",
+                        + "\nBased on:\n[NullDev/DiscordJS-Template](https://github.com/NullDev/DiscordJS-Template)",
                     inline: true,
                 },
                 { name: "\u200b", value: "\u200b", inline: true },
