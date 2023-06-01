@@ -36,6 +36,8 @@ There are other branches with different feature sets:
 - [master](https://github.com/NullDev/DiscordJS-Template/tree/master) - The default branch with all features (if you can read this, you are already here)
 - [no-i18n](https://github.com/NullDev/DiscordJS-Template/tree/no-i18n) - The no i18n / multi language support
 
+<hr>
+
 ## :wrench: Dev Setup
 
 0. Open up your favourite terminal (and navigate somewhere you want to download the repository to). <br><br>
