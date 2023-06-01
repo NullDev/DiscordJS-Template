@@ -5,6 +5,6 @@
         "command_not_found": "Das Command '%s' kenne ich nicht :/"
     },
     "replies": {
-        "bot_info_tagline": "Discord Bot zum Zählen. Erlaubt arithmetische Ausdrücke."
+        "bot_info_tagline": "Discord Bot template von NullDev."
     }
 }
