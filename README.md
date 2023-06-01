@@ -7,7 +7,8 @@
 
 ## ATTENTION: This is the "no-i18n" branch. 
 
-There is **no** multi language support in this branch. If you want to use the multi language support, please use the ["master" branch](https://github.com/NullDev/DiscordJS-Template/tree/master).
+There is **no** multi language support in this branch. <br>
+If you want to use the multi language support, please use the ["master" branch](https://github.com/NullDev/DiscordJS-Template/tree/master).
 
 For Setup / Instructions / Documentation please refer to the [readme in the master branch](https://github.com/NullDev/DiscordJS-Template/tree/master#readme)
 
