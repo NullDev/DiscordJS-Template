@@ -104,6 +104,12 @@ Once the config has been copied like described in [Step 4](#wrench-dev-setup) of
  
 <hr>
 
+## :scroll: License
+
+This Template is Licensed under [MIT](https://github.com/NullDev/DiscordJS-Template/blob/master/LICENSE). <br>
+**You are free to change the license in your Project to whatever you want!** <br>
+But please credit this Repository here in some way, shape or form :) <br>
+
 ## :octocat: Contributors
 
 <a href="https://github.com/NullDev/DiscordJS-Template/graphs/contributors">
