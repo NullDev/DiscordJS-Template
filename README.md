@@ -88,7 +88,7 @@ $ `npm run start:prod` <br><br>
 
 ## :nut_and_bolt: Configuration
 
-Once the config has been copied like described in [Step 4](#wrench-setup), it can be changed to your needs:
+Once the config has been copied like described in [Step 4](#wrench-dev-setup) of the setup, it can be changed to your needs:
 
 | Config Key | Description | Data Type | Default value |
 | ---------- | --------- | ------------------ | ------------ |
