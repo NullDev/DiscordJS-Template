@@ -105,3 +105,5 @@ Once the config has been copied like described in [Step 4](#wrench-dev-setup) of
 <sub>Made with [contrib.rocks](https://contrib.rocks).</sub>
 
 <hr>
+
+![banner](https://repository-images.githubusercontent.com/648324548/b314e053-9230-460f-922c-f03c8527c9c5)
