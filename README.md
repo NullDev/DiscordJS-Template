@@ -77,6 +77,7 @@ $ `npm run start:prod` <br><br>
     - [repo link or website](https://github.com/NullDev/DiscordJS-Template/blob/master/src/commands/user/info.js#L64)
 - Bot invite link in issues
     - [config.yml](https://github.com/NullDev/DiscordJS-Template/blob/master/.github/ISSUE_TEMPLATE/config.yml#L4)
+- And you probably want to change this README here :P
 
 <hr>
 
@@ -111,6 +112,7 @@ Once the config has been copied like described in [Step 4](#wrench-dev-setup) of
 
 - [NullDev/Arithmetica-Bot](https://github.com/NullDev/Arithmetica-Bot) - A counting bot that supports arithmetic expressions
 - [NullDev/Discord-RoleShop](https://github.com/NullDev/Discord-RoleShop) - A Bot for a Roleshop with currency that can be earned by writing messages
+- [arellak/gpt_image_discord_bot](https://github.com/arellak/gpt_image_discord_bot)
 - ... you? Create an [issue](https://github.com/NullDev/DiscordJS-Template/issues/new/choose) or a [PR](https://github.com/NullDev/DiscordJS-Template/pulls) to get featured here!
  
 <hr>
