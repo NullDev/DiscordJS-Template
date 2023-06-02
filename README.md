@@ -1,5 +1,5 @@
 # DiscordJS-Template
-[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/NullDev/DiscordJS-Template?logo=Cachet)](https://github.com/NullDev/DiscordJS-Template/issues?q=is%3Aissue+is%3Aclosed)
+[![NullDev/DiscordJS-Template](https://img.shields.io/badge/Template%3A-NullDev%2FDiscordJS--Template-green?style=flat-square&logo=github)](https://github.com/NullDev/DiscordJS-Template) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/NullDev/DiscordJS-Template?logo=Cachet)](https://github.com/NullDev/DiscordJS-Template/issues?q=is%3Aissue+is%3Aclosed)
 
 <p align="center"><img height="250" width="auto" src="https://cdn.discordapp.com/attachments/1113567657921355866/1113906962598465656/image.jpg" /></p>
 <p align="center"><b>Template repository for DiscordJS Projects</b></p>
@@ -83,12 +83,13 @@ $ `npm run start:prod` <br><br>
 
 ## :rocket: Deployment
 
+- Clone the repo to your server
 - Add the correct [secrets](https://github.com/NullDev/DiscordJS-Template/blob/master/.github/workflows/cd.yml#L27-L34) to your repository settings 
     - SSH_HOST: The host (domain / IP) of the server you want to deploy to
     - SSH_PORT: The SSH port of the server you want to deploy to (usually 22)
     - SSH_USER: The SSH user of the server you want to deploy to
     - SSH_KEY: The private SSH key of the server you want to deploy to
-    - REPO_PATH: The path to the repository on the server (e.g.: `/home/bots/MyCoolBot`)
+    - REPO_PATH: The path to the repository on the server (where you cloned to, e.g.: `/home/bots/MyCoolBot`)
     - PM2_HOME: [OPTIONAL] The path to the PM2 home directory, if it's custom (e.g.: `/home/bots/.pm2`)
 - Install PM2 on the server by running `npm install pm2 -g`
 - Start the bot initially by running `pm2 start pm2.ecosystem.json`
@@ -121,7 +122,17 @@ Once the config has been copied like described in [Step 4](#wrench-dev-setup) of
 
 This Template is Licensed under [MIT](https://github.com/NullDev/DiscordJS-Template/blob/master/LICENSE). <br>
 **You are free to change the license in your Project to whatever you want!** <br>
-But please credit this Repository here in some way, shape or form :) <br>
+But _please_ credit this Repository here in some way, shape or form :) <br>
+
+Here's a bade you can use: 
+
+[![NullDev/DiscordJS-Template](https://img.shields.io/badge/Template%3A-NullDev%2FDiscordJS--Template-green?style=flat-square&logo=github)](https://github.com/NullDev/DiscordJS-Template)
+
+```markdown
+[![NullDev/DiscordJS-Template](https://img.shields.io/badge/Template%3A-NullDev%2FDiscordJS--Template-green?style=flat-square&logo=github)](https://github.com/NullDev/DiscordJS-Template)
+```
+
+<hr>
 
 ## :octocat: Contributors
 
