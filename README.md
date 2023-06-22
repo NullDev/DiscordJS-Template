@@ -10,7 +10,7 @@
 This is a template repository for DiscordJS projects. It includes a basic setup for a Discord bot with:
 - [x] A command handler
 - [x] An event handler
-- [x] A config system
+- [x] A typed (autocomplete) config system that supports nesting and functions
 - [x] A logger (both console and file)
 - [x] Slash command support
 - [x] Multi language support (i18n) in both messages and commands
