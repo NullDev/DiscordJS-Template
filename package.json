@@ -28,10 +28,10 @@
   "author": "NullDev",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.22.1",
-    "@babel/eslint-parser": "^7.21.8",
+    "@babel/core": "^7.22.5",
+    "@babel/eslint-parser": "^7.22.5",
     "cross-env": "^7.0.3",
-    "eslint": "^8.41.0"
+    "eslint": "^8.44.0"
   },
   "dependencies": {
     "better-sqlite3": "^8.4.0",
