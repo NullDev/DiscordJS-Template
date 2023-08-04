@@ -56,24 +56,12 @@ ecosystemfile.apps[0].repo = projectRepo;
 
 await fs.writeFile(path.resolve(".", "pm2.ecosystem.json"), JSON.stringify(ecosystemfile, null, 4));
 
-// --- bot info tagline ---
-
-const botInfoEn = JSON.parse(await fs.readFile(path.resolve(".", "locales", "English_en.json"), "utf-8"));
-const botInfoDe = JSON.parse(await fs.readFile(path.resolve(".", "locales", "German_de.json"), "utf-8"));
-
-botInfoEn.replies.bot_info_tagline = projectDescription;
-botInfoDe.replies.bot_info_tagline = projectDescription;
-
-await fs.writeFile(path.resolve(".", "locales", "English_en.json"), JSON.stringify(botInfoEn, null, 4));
-await fs.writeFile(path.resolve(".", "locales", "German_de.json"), JSON.stringify(botInfoDe, null, 4));
-
 // --- bot info command ---
 
 const botInfoCommand = await fs.readFile(path.resolve(".", "src", "commands", "user", "info.js"), "utf-8");
 
-// change line: value: "YOUR_NAME",
-
 const botInfoCommandNew = botInfoCommand
+    .replace(/description\: "Discord Bot template by NullDev\.",/g, `description: "${projectDescription}",`)
     .replace(/value\: "YOUR_NAME",/g, `value: "${projectAuthor}",`)
     .replace(/value\: "[YOUR_NAME\/YOUR_REPO](https\:\/\/github.com\/YOUR_NAME\/YOUR_REPO)"/g, `value: "[${projectAuthor}/${projectName}](${projectRepo})"`);
 
