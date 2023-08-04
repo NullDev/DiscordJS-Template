@@ -14,6 +14,7 @@
     "start": "npm run start:dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "setup-template": "node scripts/setup-template.js",
     "generate-config": "node scripts/generate-config.js",
     "pull-and-restart": "node scripts/pull-and-restart.js"
   },
