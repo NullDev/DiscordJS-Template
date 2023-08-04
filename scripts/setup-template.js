@@ -71,8 +71,6 @@ await fs.writeFile(path.resolve(".", "locales", "German_de.json"), JSON.stringif
 
 const botInfoCommand = await fs.readFile(path.resolve(".", "src", "commands", "user", "info.js"), "utf-8");
 
-// change line: value: "YOUR_NAME",
-
 const botInfoCommandNew = botInfoCommand
     .replace(/value\: "YOUR_NAME",/g, `value: "${projectAuthor}",`)
     .replace(/value\: "[YOUR_NAME\/YOUR_REPO](https\:\/\/github.com\/YOUR_NAME\/YOUR_REPO)"/g, `value: "[${projectAuthor}/${projectName}](${projectRepo})"`);
