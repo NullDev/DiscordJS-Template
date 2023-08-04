@@ -1,6 +1,7 @@
 #!/usr/bin/node
 import fs from "node:fs/promises";
 import path from "node:path";
+import rl from "node:readline";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -13,7 +14,7 @@ import path from "node:path";
  * @return {Promise<string>}
  */
 const readInput = async(prompt) => {
-    const readline = require("readline").createInterface({
+    const readline = rl.createInterface({
         input: process.stdin,
         output: process.stdout,
     });
