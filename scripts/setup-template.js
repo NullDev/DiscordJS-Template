@@ -2,6 +2,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import rl from "node:readline";
+import { EOL } from "node:os";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -38,14 +39,14 @@ const projectRepo = await readInput("Repository link: ");
 
 const packagefile = JSON.parse(await fs.readFile(path.resolve(".", "package.json"), "utf-8"));
 
-packagefile.name = projectName;
+packagefile.name = projectName.toLowerCase();
 packagefile.description = projectDescription;
 packagefile.author = projectAuthor;
 packagefile.repository.url = projectRepo;
 packagefile.bugs.url = projectRepo + "/issues";
 packagefile.homepage = projectRepo + "#readme";
 
-await fs.writeFile(path.resolve(".", "package.json"), JSON.stringify(packagefile, null, 2));
+await fs.writeFile(path.resolve(".", "package.json"), JSON.stringify(packagefile, null, 2) + EOL);
 
 // --- pm2.ecosystem.json ---
 
@@ -54,8 +55,7 @@ const ecosystemfile = JSON.parse(await fs.readFile(path.resolve(".", "pm2.ecosys
 ecosystemfile.apps[0].name = projectName;
 ecosystemfile.apps[0].repo = projectRepo;
 
-await fs.writeFile(path.resolve(".", "pm2.ecosystem.json"), JSON.stringify(ecosystemfile, null, 4));
-
+await fs.writeFile(path.resolve(".", "pm2.ecosystem.json"), JSON.stringify(ecosystemfile, null, 4) + EOL);
 // --- bot info command ---
 
 const botInfoCommand = await fs.readFile(path.resolve(".", "src", "commands", "user", "info.js"), "utf-8");
@@ -66,5 +66,7 @@ const botInfoCommandNew = botInfoCommand
     .replace(/value\: "[YOUR_NAME\/YOUR_REPO](https\:\/\/github.com\/YOUR_NAME\/YOUR_REPO)"/g, `value: "[${projectAuthor}/${projectName}](${projectRepo})"`);
 
 await fs.writeFile(path.resolve(".", "src", "commands", "user", "info.js"), botInfoCommandNew);
+
+console.log("All done :)");
 
 process.exit(0);
