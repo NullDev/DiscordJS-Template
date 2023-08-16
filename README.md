@@ -17,10 +17,11 @@ This is a template repository for DiscordJS projects. It includes a basic setup 
 - [x] QuickDB for persistent storage
 - [x] Deployment via GitHub Actions and [PM2](https://pm2.keymetrics.io/)
 - [x] ESLint
-- [x] cron jobs for scheduled tasks such as cleanups (logs / database)
+- [x] Cron jobs for scheduled tasks such as cleanups (logs / database)
 - [x] Sharding support
 - [x] Admin / User only commands
 - [x] Easy to set up
+- [x] Minimalistic REST-API base for potential dashboard or OAuth 
 
 <hr>
 
