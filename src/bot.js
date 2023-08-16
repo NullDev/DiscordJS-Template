@@ -5,6 +5,7 @@ import DiscordClient from "./util/client.js";
 import registerCommands from "./service/commandRegister.js";
 import interactionCreateHandler from "./events/interactionCreate.js";
 import scheduleCrons from "./service/cronScheduler.js";
+import { api } from "./api/index.js";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -22,6 +23,7 @@ const client = new DiscordClient({
     },
 });
 
+api(client);
 Log.wait("Starting bot...");
 
 client.on(Events.ClientReady, async() => {
