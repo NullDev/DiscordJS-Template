@@ -53,7 +53,9 @@ Then navigate to the folder.<br><br>
 $ `npm install`<br><br>
 4. Copy [config/config.template.js](https://github.com/NullDev/DiscordJS-Template/blob/master/config/config.template.js) and paste it as `config/config.custom.js` OR use `npm run generate-config`. <br><br>
 5. Configure it in your favourite editor by editing `config/config.custom.js`. <br><br>
-6. Start it in development mode by running <br>
+6. Change some strings by running <br>
+$ `npm run setup-template` <br><br>
+7. Start it in development mode by running <br>
 $ `npm start` <br>
 or start in production mode <br>
 $ `npm run start:prod` <br><br>
@@ -61,6 +63,8 @@ $ `npm run start:prod` <br><br>
 <hr>
 
 ## :satellite: Things to change in the template
+
+> NOTE: You don't have to do that manually. Just run `npm run setup-template` !
 
 - package.json
     - [name](https://github.com/NullDev/DiscordJS-Template/blob/master/package.json#L2)
