@@ -36,6 +36,7 @@ Feature request or discovered a bug? Please [open an Issue](https://github.com/N
 There are other branches with different feature sets:
 - [master](https://github.com/NullDev/DiscordJS-Template/tree/master) - The default branch with all features (if you can read this, you are already here)
 - [no-i18n](https://github.com/NullDev/DiscordJS-Template/tree/no-i18n) - No i18n / multi language support, command localization, etc
+- [webserver](https://github.com/NullDev/DiscordJS-Template/tree/webserver) - A basic webserver with a REST-API base e.g. for OAuth or a dashboard
 
 <hr>
 
