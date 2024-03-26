@@ -1,4 +1,4 @@
-import { GatewayIntentBits, Events, ActivityType } from "discord.js";
+import { GatewayIntentBits, Events, ActivityType, Partials } from "discord.js";
 import Log from "./util/log.js";
 import { config } from "../config/config.js";
 import DiscordClient from "./util/client.js";
@@ -15,6 +15,11 @@ const client = new DiscordClient({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.DirectMessages,
+    ],
+    partials: [
+        Partials.Channel,
+        Partials.Message,
     ],
     presence: {
         status: "dnd",
@@ -41,10 +46,14 @@ client.on(Events.ClientReady, async() => {
     let lastGuildCount = guildCount;
     setInterval(async() => {
         const newGuildCount = await client.guilds.fetch().then(guilds => guilds.size);
-        if (newGuildCount !== lastGuildCount){
+        const statusHasReset = client.user?.presence.activities[0].name === "Starting...";
+
+        if (newGuildCount !== lastGuildCount || statusHasReset){
             lastGuildCount = newGuildCount;
             client.user?.setActivity({ name: `Watching ${newGuildCount} servers!`, type: ActivityType.Playing });
             Log.info("Guild count changed to " + newGuildCount + ". Updated activity.");
+
+            if (statusHasReset) Log.warn("Shard probably died. Re-Setting status without posting stats.");
         }
     }, 5 * 60 * 1000);
 

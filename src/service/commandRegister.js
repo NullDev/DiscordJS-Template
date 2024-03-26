@@ -40,16 +40,21 @@ const commandRegister = async function(client){
     }
 
     const rest = new REST().setToken(client.token || "");
+    const cmdMap = client.commands.map(command => command.data.toJSON());
     try {
         Log.info("Started refreshing application (/) commands.");
         const data = await rest.put(Routes.applicationCommands(client.user?.id || ""), {
-            body: client.commands.map(command => command.data.toJSON()),
+            body: cmdMap,
         });
         Log.done("Successfully reloaded " + /** @type {Array} */ (data).length + " application (/) commands.");
     }
     catch (error){
         Log.error("Error during registering of application (/) commands: " + error);
     }
+
+    /**
+     * @info: send cmdMap to bot lists here
+     */
 
     return client.commands;
 };
