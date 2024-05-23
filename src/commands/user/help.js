@@ -8,7 +8,7 @@ const commandName = import.meta.url.split("/").pop()?.split(".").shift() ?? "";
 
 export default {
     data: new SlashCommandBuilder()
-        .setName("help")
+        .setName(commandName)
         .setDescription("Show an overview of commands.")
         .setDMPermission(false),
     /**

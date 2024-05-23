@@ -42,13 +42,6 @@ if (!fs.existsSync(path.resolve("./data"))){
 }
 else Log.done("Data dir exists!");
 
-Log.wait("Checking locales...");
-if (await translationCheck()) Log.done("Locales are in sync!");
-else {
-    Log.error("Locales are not in sync!");
-    process.exit(1);
-}
-
 manager.on("clusterCreate", shard => Log.info(`Launched shard ${shard.id}`));
 
 manager.spawn({ timeout: -1 });

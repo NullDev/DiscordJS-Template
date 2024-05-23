@@ -5,9 +5,11 @@ import { SlashCommandBuilder } from "discord.js";
 // = Copyright (c) NullDev = //
 // ========================= //
 
+const commandName = import.meta.url.split("/").pop()?.split(".").shift() ?? "";
+
 export default {
     data: new SlashCommandBuilder()
-        .setName("info")
+        .setName(commandName)
         .setDescription("Show information about this bot.")
         .setDMPermission(false),
     /**

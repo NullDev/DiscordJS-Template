@@ -46,7 +46,7 @@ client.on(Events.ClientReady, async() => {
 
     await scheduleCrons(client);
 
-    client.user?.setActivity({ name: `Counting on ${guildCount} servers!`, type: ActivityType.Playing });
+    client.user?.setActivity({ name: `Watching ${guildCount} servers!`, type: ActivityType.Playing });
 
     // Reload guild count every 5 minutes if it changed
     let lastGuildCount = guildCount;
@@ -56,7 +56,7 @@ client.on(Events.ClientReady, async() => {
 
         if (newGuildCount !== lastGuildCount || statusHasReset){
             lastGuildCount = newGuildCount;
-            client.user?.setActivity({ name: `Counting on ${newGuildCount} servers!`, type: ActivityType.Playing });
+            client.user?.setActivity({ name: `Watching ${newGuildCount} servers!`, type: ActivityType.Playing });
             Log.info("Guild count changed to " + newGuildCount + ". Updated activity.");
 
             if (statusHasReset) Log.warn("Shard probably died. Re-Setting status without posting stats.");
