@@ -121,6 +121,8 @@ Once the config has been copied like described in [Step 4](#wrench-dev-setup) of
 - [NullDev/Arithmetica-Bot](https://github.com/NullDev/Arithmetica-Bot) - A counting bot that supports arithmetic expressions
 - [NullDev/Discord-RoleShop](https://github.com/NullDev/Discord-RoleShop) - A Bot for a Roleshop with currency that can be earned by writing messages
 - [arellak/gpt_image_discord_bot](https://github.com/arellak/gpt_image_discord_bot) - A Discord bot that generates images using DALL-E
+- [arellak/mukaji_chat](https://github.com/arellak/mukaji_chat) - Chat  bot using Markov chains
+- [altrusin/chimera](https://github.com/altrusin/chimera) - A Discord management bot
 - ... you? Create an [issue](https://github.com/NullDev/DiscordJS-Template/issues/new/choose) or a [PR](https://github.com/NullDev/DiscordJS-Template/pulls) to get featured here!
  
 <hr>
