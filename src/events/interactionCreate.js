@@ -1,8 +1,14 @@
+import path from "node:path";
+import { QuickDB } from "quick.db";
 import Log from "../util/log.js";
 
 // ========================= //
 // = Copyright (c) NullDev = //
 // ========================= //
+
+const statDb = new QuickDB({
+    filePath: path.resolve("./data/cmd_stats.sqlite"),
+});
 
 /**
  * Handle command Interaction events
@@ -21,6 +27,7 @@ const handleCommandInteraction = async function(interaction){
     }
 
     try {
+        await statDb.add(interaction.commandName, 1);
         await command.execute(interaction);
     }
     catch (error){

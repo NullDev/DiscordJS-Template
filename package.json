@@ -1,6 +1,6 @@
 {
   "name": "discordjs-template",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "description": "A template for Discord.js bots",
@@ -29,17 +29,18 @@
   "author": "NullDev",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.22.5",
-    "@babel/eslint-parser": "^7.22.5",
+    "@babel/core": "^7.24.5",
+    "@babel/eslint-parser": "^7.24.5",
     "cross-env": "^7.0.3",
-    "eslint": "^8.44.0"
+    "eslint": "^9.3.0"
   },
   "dependencies": {
-    "better-sqlite3": "^8.4.0",
-    "check-dependencies": "^1.1.0",
-    "discord.js": "^14.11.0",
+    "better-sqlite3": "^10.0.0",
+    "check-dependencies": "^2.0.0",
+    "discord-hybrid-sharding": "^2.2.0",
+    "discord.js": "^14.15.2",
     "i18n-light": "^0.5.4",
-    "node-cron": "^3.0.2",
-    "quick.db": "^9.1.6"
+    "node-cron": "^3.0.3",
+    "quick.db": "^9.1.7"
   }
 }

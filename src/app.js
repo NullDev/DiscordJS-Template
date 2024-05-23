@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { ShardingManager } from "discord.js";
+import { ClusterManager } from "discord-hybrid-sharding";
 import Log from "./util/log.js";
 import { config, meta } from "../config/config.js";
 
@@ -8,10 +8,10 @@ import { config, meta } from "../config/config.js";
 // = Copyright (c) NullDev = //
 // ========================= //
 
-const manager = new ShardingManager("./src/bot.js", {
-    token: config.discord.bot_token,
+const manager = new ClusterManager("./src/bot.js", {
     totalShards: "auto",
-    respawn: true,
+    shardsPerClusters: 2,
+    token: config.discord.bot_token,
 });
 
 const appname = meta.getName();
@@ -42,10 +42,13 @@ if (!fs.existsSync(path.resolve("./data"))){
 }
 else Log.done("Data dir exists!");
 
-manager.on("shardCreate", shard => Log.info(`Launched shard ${shard.id}`));
+Log.wait("Checking locales...");
+if (await translationCheck()) Log.done("Locales are in sync!");
+else {
+    Log.error("Locales are not in sync!");
+    process.exit(1);
+}
 
-manager.spawn({
-    amount: manager.totalShards,
-    delay: 5500,
-    timeout: 30000,
-}).catch(e => Log.error("Failed to spawn shards", e));
+manager.on("clusterCreate", shard => Log.info(`Launched shard ${shard.id}`));
+
+manager.spawn({ timeout: -1 });

@@ -1,10 +1,12 @@
-import { GatewayIntentBits, Events, ActivityType } from "discord.js";
+import { ClusterClient, getInfo } from "discord-hybrid-sharding";
+import { GatewayIntentBits, Events, ActivityType, Partials } from "discord.js";
 import Log from "./util/log.js";
 import { config } from "../config/config.js";
 import DiscordClient from "./util/client.js";
 import registerCommands from "./service/commandRegister.js";
 import interactionCreateHandler from "./events/interactionCreate.js";
 import scheduleCrons from "./service/cronScheduler.js";
+import messageCreate from "./events/messageCreate.js";
 
 // ========================= //
 // = Copyright (c) NullDev = //
@@ -15,17 +17,26 @@ const client = new DiscordClient({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.DirectMessages,
+    ],
+    partials: [
+        Partials.Channel,
+        Partials.Message,
     ],
     presence: {
         status: "dnd",
         activities: [{ name: "Starting...", type: ActivityType.Playing }],
     },
+    shards: getInfo().SHARD_LIST,
+    shardCount: getInfo().TOTAL_SHARDS,
 });
 
 Log.wait("Starting bot...");
 
+client.cluster = new ClusterClient(client);
+
 client.on(Events.ClientReady, async() => {
-    Log.done("Bot is ready!");
+    Log.done("Client is ready!");
 
     const guildCount = await client.guilds.fetch().then(guilds => guilds.size);
     Log.info("Logged in as '" + client.user?.tag + "'! Serving in " + guildCount + " servers.");
@@ -35,24 +46,27 @@ client.on(Events.ClientReady, async() => {
 
     await scheduleCrons(client);
 
-    client.user?.setActivity({ name: `Watching ${guildCount} servers!`, type: ActivityType.Playing });
+    client.user?.setActivity({ name: `Counting on ${guildCount} servers!`, type: ActivityType.Playing });
 
     // Reload guild count every 5 minutes if it changed
     let lastGuildCount = guildCount;
     setInterval(async() => {
         const newGuildCount = await client.guilds.fetch().then(guilds => guilds.size);
-        if (newGuildCount !== lastGuildCount){
+        const statusHasReset = client.user?.presence.activities[0].name === "Starting...";
+
+        if (newGuildCount !== lastGuildCount || statusHasReset){
             lastGuildCount = newGuildCount;
-            client.user?.setActivity({ name: `Watching ${newGuildCount} servers!`, type: ActivityType.Playing });
+            client.user?.setActivity({ name: `Counting on ${newGuildCount} servers!`, type: ActivityType.Playing });
             Log.info("Guild count changed to " + newGuildCount + ". Updated activity.");
+
+            if (statusHasReset) Log.warn("Shard probably died. Re-Setting status without posting stats.");
         }
     }, 5 * 60 * 1000);
 
     client.user?.setStatus("online");
 });
 
-// eslint-disable-next-line no-unused-vars
-client.on(Events.MessageCreate, async message => {});
+client.on(Events.MessageCreate, async message => messageCreate(message));
 
 // eslint-disable-next-line no-unused-vars
 client.on(Events.MessageDelete, async message => {});
